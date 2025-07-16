@@ -4,7 +4,7 @@ require('dotenv').config();
 
 const postsRouter = require('./routes/posts');
 const commentsRouter = require('./routes/comments');
-const usersRouter = require('./routes/users'); // 👈 importa las rutas de usuarios
+const usersRouter = require('./routes/users'); // importa las rutas de usuarios
 
 const app = express();
 app.use(cors());
