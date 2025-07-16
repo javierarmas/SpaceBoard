@@ -2,28 +2,36 @@ const express = require('express');
 const router = express.Router();
 const db = require('../models/db');
 
-// GET /posts
-router.get('/', async (req, res) => {
+router.post('/', async (req, res) => {
   try {
-    const posts = await db.query('SELECT * FROM posts ORDER BY created_at DESC');
-    res.json(posts.rows);
+    const { title, content, user_id } = req.body;
+
+    const result = await db.query(
+      `INSERT INTO posts (title, content, user_id)
+       VALUES ($1, $2, $3) RETURNING *`,
+      [title, content, user_id]
+    );
+
+    res.json(result.rows[0]);
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    console.error(err);
+    res.status(500).json({ error: 'Error creando publicacion' });
   }
 });
 
-// POST /posts
-router.post('/', async (req, res) => {
+router.get('/', async (req, res) => {
   try {
-    const { user_id, title, content, media_url } = req.body;
-    const newPost = await db.query(
-      `INSERT INTO posts (user_id, title, content, media_url)
-       VALUES ($1, $2, $3, $4) RETURNING *`,
-      [user_id, title, content, media_url]
-    );
-    res.json(newPost.rows[0]);
+    const result = await db.query(`
+      SELECT p.id, p.title, p.content, p.user_id, u.username, p.created_at
+      FROM posts p
+      JOIN users u ON p.user_id = u.id
+      ORDER BY p.created_at DESC
+    `);
+
+    res.json(result.rows);
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    console.error(err);
+    res.status(500).json({ error: 'Error obteniendo publicaciones' });
   }
 });
 

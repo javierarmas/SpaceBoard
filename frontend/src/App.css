@@ -1,0 +1,275 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1e1b3a, #2e1b4a);
+  color: #eee;
+  background-attachment: fixed;
+}
+
+.App {
+  max-width: 1000px;
+  margin: auto;
+  padding: 20px;
+}
+
+h1, h2 {
+  text-align: center;
+  color: #fff;
+}
+
+.logo-fixed {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 3rem;
+  font-weight: bold;
+  color: #d2b6ff;
+  text-shadow: 2px 2px 4px black;
+  z-index: 10;
+}
+
+.intro-container {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+.intro-form {
+  background-color: rgba(0, 0, 0, 0.85);
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 300px;
+  width: 100%;
+  text-align: center;
+}
+
+.intro-form h2 {
+  margin-bottom: 15px;
+  color: #d2b6ff;
+}
+
+.intro-form input {
+  width: 90%;
+  padding: 8px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  background-color: #222;
+  color: #eee;
+}
+
+.intro-buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 10px;
+}
+
+.intro-buttons button {
+  flex: 1;
+  margin: 0 5px;
+  padding: 6px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #444;
+  color: white;
+}
+
+.intro-buttons button.active {
+  background-color: #7c3aed;
+}
+
+/* botones globales */
+button {
+  margin-top: 10px;
+  padding: 8px 20px;
+  background-color: #7c3aed;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #9f5fff;
+}
+
+/* botón cerrar sesión */
+.logout-btn {
+  background-color: #b91c1c;
+}
+
+.logout-btn:hover {
+  background-color: #ef4444;
+}
+
+/* publicaciones */
+.post {
+  background: rgba(35, 35, 60, 0.9);
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 8px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.5);
+}
+
+.post h3 {
+  margin-top: 0;
+  color: #9b59b6;
+}
+
+.post small {
+  color: #aaa;
+}
+
+/* comentarios */
+.comment {
+  background: rgba(50, 50, 80, 0.7);
+  margin: 5px 0;
+  padding: 8px;
+  border-radius: 6px;
+}
+
+form {
+  margin-top: 10px;
+}
+
+textarea {
+  width: 100%;
+  margin: 5px 0;
+  padding: 8px;
+  border-radius: 4px;
+  border: none;
+  background: #222;
+  color: #eee;
+}
+
+.post-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #d2b6ff;
+  margin: 0 0 5px 0;
+  text-shadow: 1px 1px 2px black;
+  word-break: break-word;
+}
+
+input, textarea {
+  width: 100%;
+  margin: 5px 0;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #444;
+  background: #222;
+  color: #eee;
+}
+
+input::placeholder, textarea::placeholder {
+  color: #aaa;
+}
+
+.intro {
+  text-align: center;
+  color: #fff;
+  margin-top: 20px;
+}
+
+.intro h2 {
+  color: #b388eb;
+  margin-bottom: 10px;
+}
+
+.intro p {
+  max-width: 600px;
+  margin: 0 auto 20px auto;
+  font-size: 1.1rem;
+}
+
+.videos {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.videos iframe {
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+/* Responsive para pantallas medianas */
+@media (max-width: 768px) {
+  .logo-fixed {
+    position: static;
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+  }
+
+  .intro-container {
+    position: static;
+    margin: 10px auto;
+    display: flex;
+    justify-content: center;
+  }
+
+  .intro-form {
+    max-width: 90%;
+  }
+
+  .videos iframe {
+    width: 90%;
+    height: auto;
+  }
+
+  .App {
+    padding: 10px;
+  }
+}
+
+/* Responsive para pantallas pequeñas */
+@media (max-width: 480px) {
+  .logo-fixed {
+    font-size: 2rem;
+  }
+
+  h1, h2 {
+    font-size: 1.5rem;
+  }
+
+  .intro-form h2 {
+    font-size: 1.2rem;
+  }
+
+  .videos iframe {
+    width: 100%;
+  }
+
+  .post-title {
+    font-size: 1rem;
+  }
+
+  .intro p {
+    font-size: 1rem;
+    padding: 0 10px;
+  }
+}
+
+.welcome-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(0,0,0,0.7);
+  padding: 10px 20px;
+  margin: 20px 0;
+  border-radius: 8px;
+  flex-wrap: wrap;
+}
+
+.welcome-bar span {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
