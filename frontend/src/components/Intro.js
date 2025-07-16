@@ -14,7 +14,7 @@ function Intro({ onLogin }) {
     if (mode === "login") {
       // login
       try {
-        const res = await axios.post("http://localhost:3000/users/login", {
+        const res = await axios.post("https://spaceboard-ef8p.onrender.com/users/login", {
           email,
           password,
         });
@@ -27,7 +27,7 @@ function Intro({ onLogin }) {
     } else {
       // registro
       try {
-        const res = await axios.post("http://localhost:3000/users", {
+        const res = await axios.post("https://spaceboard-ef8p.onrender.com/users", {
           username,
           email,
           password,

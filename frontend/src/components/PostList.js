@@ -12,7 +12,7 @@ function PostList({ userId }) {
 
   const fetchPosts = () => {
     axios
-      .get("http://localhost:3000/posts")
+      .get("https://spaceboard-ef8p.onrender.com/posts")
       .then((res) => {
         setPosts(res.data);
       })

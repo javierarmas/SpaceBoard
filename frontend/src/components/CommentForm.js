@@ -7,7 +7,7 @@ function CommentForm({ postId, userId, onCommentAdded }) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    axios.post("http://localhost:3000/comments", {
+    axios.post("https://spaceboard-ef8p.onrender.com/comments", {
       post_id: postId,
       user_id: userId,
       content

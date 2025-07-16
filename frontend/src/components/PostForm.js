@@ -15,7 +15,7 @@ function PostForm({ userId, onPostCreated }) {
     e.preventDefault();
 
     axios
-      .post("http://localhost:3000/posts", {
+      .post("https://spaceboard-ef8p.onrender.com/posts", {
         ...form,
         user_id: userId
       })

@@ -10,7 +10,7 @@ function CommentList({ postId }) {
 
   const fetchComments = () => {
     axios
-      .get(`http://localhost:3000/comments?post_id=${postId}`)
+      .get(`https://spaceboard-ef8p.onrender.com/comments?post_id=${postId}`)
       .then((res) => {
         setComments(res.data);
       })
